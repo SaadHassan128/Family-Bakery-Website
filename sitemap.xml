@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+    <!-- Homepage -->
+    <url>
+        <loc>https://familybakery.com/</loc>
+        <lastmod>2024-01-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>1.0</priority>
+    </url>
+
+    <!-- About Section -->
+    <url>
+        <loc>https://familybakery.com/#about</loc>
+        <lastmod>2024-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Our Offer Section -->
+    <url>
+        <loc>https://familybakery.com/#offer</loc>
+        <lastmod>2024-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Gallery Section -->
+    <url>
+        <loc>https://familybakery.com/#gallery</loc>
+        <lastmod>2024-01-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Blog Section -->
+    <url>
+        <loc>https://familybakery.com/#blog</loc>
+        <lastmod>2024-01-31</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.9</priority>
+    </url>
+
+    <!-- Contact Section -->
+    <url>
+        <loc>https://familybakery.com/#contact</loc>
+        <lastmod>2024-01-31</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+</urlset>

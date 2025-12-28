@@ -1,0 +1,22 @@
+# robots.txt for Family Bakery
+
+# Allow all crawlers
+User-agent: *
+Allow: /
+
+# Specific rules for major search engines
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+# Disallow specific directories (if any)
+# Disallow: /admin/
+# Disallow: /private/
+
+# Sitemap location
+Sitemap: https://familybakery.com/sitemap.xml
+
+# Crawl delay (optional, in seconds)
+# Crawl-delay: 1

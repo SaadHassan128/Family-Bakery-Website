@@ -3,148 +3,441 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FamilyBakery</title>
-    <link rel="shortcut icon" href="images/favicon.png" type="image/x-icon">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+
+    <!-- Primary Meta Tags -->
+    <title>Family Bakery - Artisan Breads & Baked Goods in Los Angeles | 30+ Years Experience</title>
+    <meta name="title" content="Family Bakery - Artisan Breads & Baked Goods in Los Angeles">
+    <meta name="description" content="Award-winning family bakery in Los Angeles with 30+ years of experience. Fresh artisan breads, bagels, cookies & pastries baked daily. Order online or visit us!">
+    <meta name="keywords" content="bakery, artisan bread, Los Angeles bakery, fresh baked goods, sourdough, bagels, cookies, family bakery">
+    <meta name="author" content="Family Bakery">
+    <meta name="robots" content="index, follow">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://familybakery.com/">
+    <meta property="og:title" content="Family Bakery - Artisan Breads & Baked Goods in Los Angeles">
+    <meta property="og:description" content="Award-winning family bakery with 30+ years of experience. Fresh artisan breads, bagels, cookies & pastries baked daily.">
+    <meta property="og:image" content="https://familybakery.com/images/bakery-light-1.jpg">
+    <meta property="og:site_name" content="Family Bakery">
+    <meta property="og:locale" content="en_US">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://familybakery.com/">
+    <meta property="twitter:title" content="Family Bakery - Artisan Breads & Baked Goods">
+    <meta property="twitter:description" content="Award-winning family bakery with 30+ years of experience. Fresh artisan breads, bagels, cookies & pastries baked daily.">
+    <meta property="twitter:image" content="https://familybakery.com/images/bakery-light-1.jpg">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://familybakery.com/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="images/favicon.png">
+    <link rel="apple-touch-icon" href="images/favicon.png">
+
+    <!-- Preload Critical Resources -->
+    <link rel="preload" href="style.css" as="style">
+    <link rel="preload" href="images/drew-coffman-1872.jpg" as="image">
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="style.css">
+
+    <!-- Structured Data - LocalBusiness Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Bakery",
+      "name": "Family Bakery",
+      "image": "https://familybakery.com/images/bakery-light-1.jpg",
+      "description": "Award-winning family bakery in Los Angeles with 30+ years of experience specializing in artisan breads and baked goods.",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "123 Bakery Street",
+        "addressLocality": "Los Angeles",
+        "addressRegion": "CA",
+        "postalCode": "90001",
+        "addressCountry": "US"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "34.0522",
+        "longitude": "-118.2437"
+      },
+      "url": "https://familybakery.com",
+      "telephone": "+46-123-456-789",
+      "email": "hello@familybakery.com",
+      "priceRange": "$$",
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"],
+          "opens": "10:00",
+          "closes": "22:00"
+        },
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": ["Saturday", "Sunday"],
+          "opens": "10:00",
+          "closes": "23:00"
+        }
+      ],
+      "servesCuisine": "Bakery",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "340"
+      }
+    }
+    </script>
 </head>
 <body>
+    <!-- Skip to Main Content (Accessibility) -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
 
-    <!-- Navbar -->
-    <div class="navbar">
-        <img class="logo" src="./images/bakery-light-1.png" alt="Bakery Logo">
-        <div class="menu-icon" onclick="toggleMenu()">☰</div>
-        <ul class="links">
-            <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#offer">Our Offer</a></li>
-            <li><a href="#gallery">Gallery</a></li>
-            <li><a href="#blog">Blog</a></li>
-            <li><a href="#contact">Contact</a></li>
-        </ul>
+    <!-- Loading Spinner -->
+    <div id="loading-spinner" class="loading-spinner">
+        <div class="spinner"></div>
     </div>
 
-    <!-- Home Section -->
-    <div id="home" class="homepage">
-        <h3>Welcome to</h3>
-        <h1>Family Bakery</h1>
-        <p>We're the biggest, best-equipped, and most advanced bakery in the greater Los Angeles area.</p>
-        <div class="btn">
-            <button class="btn1">Learn More</button>
-            <button class="btn2">Contact Us</button>
+    <!-- Scroll Progress Bar -->
+    <div id="scroll-progress" class="scroll-progress"></div>
+
+    <!-- Header / Navbar -->
+    <header class="navbar" id="navbar" role="banner">
+        <div class="navbar-container">
+            <a href="#home" class="logo-link" aria-label="Family Bakery Home">
+                <img class="logo" src="./images/bakery-light-1.png" alt="Family Bakery Logo" width="120" height="40">
+            </a>
+
+            <button class="menu-toggle" id="menu-toggle" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="nav-menu">
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+                <span class="hamburger-line"></span>
+            </button>
+
+            <nav id="nav-menu" class="nav-menu" role="navigation" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="#home" class="nav-link">Home</a></li>
+                    <li><a href="#about" class="nav-link">About</a></li>
+                    <li><a href="#offer" class="nav-link">Our Offer</a></li>
+                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+                    <li><a href="#blog" class="nav-link">Blog</a></li>
+                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                </ul>
+            </nav>
         </div>
-    </div>
+    </header>
 
-    <!-- About Section -->
-    <div id="about" class="about">
-        <img class="img1" src="./images/3.jpg" alt="Bakery Interior">
-        <div class="about1">
-            <h1>Who We Are?</h1>
-            <p>We have been operating for over 30 years and are members of The Federation of Master Bakers.</p>
-            <div class="icons">
-                <div><img src="./images/icon1.PNG" alt="Eco-friendly"><p>We care about the environment.</p></div>
-                <div><img src="./images/icon2.PNG" alt="Trusted Clients"><p>We are trusted by hundreds of clients.</p></div>
-                <div><img src="./images/icon3.PNG" alt="Social Media"><p>Social media loves us!</p></div>
-                <div><img src="./images/icon4.PNG" alt="Easy to use"><p>This list is super easy to create.</p></div>
+    <!-- Main Content -->
+    <main id="main-content">
+        <!-- Hero Section -->
+        <section id="home" class="hero-section" aria-labelledby="hero-heading">
+            <div class="hero-overlay"></div>
+            <div class="hero-content animate-fade-in">
+                <p class="hero-subtitle">Welcome to</p>
+                <h1 id="hero-heading" class="hero-title">Family Bakery</h1>
+                <p class="hero-description">We're the biggest, best-equipped, and most advanced bakery in the greater Los Angeles area.</p>
+                <div class="hero-buttons">
+                    <a href="#about" class="btn btn-primary">Learn More</a>
+                    <a href="#contact" class="btn btn-secondary">Contact Us</a>
+                </div>
             </div>
-        </div>
-    </div>
+            <div class="scroll-indicator">
+                <span class="scroll-arrow"></span>
+            </div>
+        </section>
 
-    <!-- Our Offer Section -->
-    <div id="offer" class="our">
-        <div class="our1">
-            <h1>Our Offer</h1>
-            <p>We work on projects big and small, from small residential extensions to full house builds.</p>
-        </div>
-        <img class="our2" src="./images/4.jpg" alt="Bakery Shop">
-    </div>
+        <!-- About Section -->
+        <section id="about" class="about-section section-padding" aria-labelledby="about-heading">
+            <div class="container">
+                <div class="about-grid">
+                    <div class="about-image animate-on-scroll">
+                        <img src="./images/3.jpg" alt="Cozy interior of Family Bakery with fresh bread display" loading="lazy" width="500" height="400">
+                    </div>
+                    <div class="about-content animate-on-scroll">
+                        <h2 id="about-heading" class="section-title">Who We Are</h2>
+                        <p class="section-description">We have been operating for over 30 years and are members of The Federation of Master Bakers. Our commitment to quality and tradition has made us a beloved part of the Los Angeles community.</p>
 
-    <!-- Our Baking Section -->
-    <div id="gallery" class="b1">
-        <h1>Our Baking!</h1>
-        <p>Learn more about our special baked goods.</p>
-    </div>
-    <div class="baking">
-        <div><img src="./images/5.jpg" alt="Bread"><h1>Superior Breads</h1><p>Freshly baked artisan breads.</p></div>
-        <div><img src="./images/6.jpg" alt="Bagels"><h1>Bagels</h1><p>Soft, chewy, and full of flavor.</p></div>
-        <div><img src="./images/7.jpg" alt="Cookies"><h1>Cookies</h1><p>Delicious homemade cookies.</p></div>
-    </div>
-    <!-- Blog Section -->
-<div id="blog" class="blog">
-    <h1>Latest from Our Blog</h1>
-    <p>Stay updated with our latest news, recipes, and baking tips!</p>
+                        <div class="features-grid">
+                            <article class="feature-item">
+                                <img src="./images/icon13.png" alt="" width="40" height="40" loading="lazy" aria-hidden="true">
+                                <p>We care about the environment.</p>
+                            </article>
+                            <article class="feature-item">
+                                <img src="./images/icon14.png" alt="" width="40" height="40" loading="lazy" aria-hidden="true">
+                                <p>We are trusted by hundreds of clients.</p>
+                            </article>
+                            <article class="feature-item">
+                                <img src="./images/icon15.png" alt="" width="40" height="40" loading="lazy" aria-hidden="true">
+                                <p>Social media loves us!</p>
+                            </article>
+                            <article class="feature-item">
+                                <img src="./images/icon16.png" alt="" width="40" height="40" loading="lazy" aria-hidden="true">
+                                <p>Premium quality ingredients.</p>
+                            </article>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-    <div class="blog-container">
-        <div class="blog-card">
-            <img src="./images/art.jpg" alt="Art of Baking">
-            <h2>The Art of Baking</h2>
-            <p>Discover the secrets behind creating perfect bread every time. From choosing the right flour to mastering fermentation.</p>
-            <a href="#">Read More</a>
-        </div>
+        <!-- Our Offer Section -->
+        <section id="offer" class="offer-section section-padding" aria-labelledby="offer-heading">
+            <div class="container">
+                <div class="offer-grid">
+                    <div class="offer-content animate-on-scroll">
+                        <h2 id="offer-heading" class="section-title">Our Offer</h2>
+                        <p class="section-description">From small custom orders to large catering events, we bring the same dedication to quality and craftsmanship to every project. Our state-of-the-art facilities and experienced bakers ensure perfection in every bite.</p>
+                        <div class="stats-container">
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="30">0</span>
+                                <span class="stat-label">Years Experience</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="500">0</span>
+                                <span class="stat-label">Happy Clients</span>
+                            </div>
+                            <div class="stat-item">
+                                <span class="stat-number" data-count="50">0</span>
+                                <span class="stat-label">Products Daily</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="offer-image animate-on-scroll">
+                        <img src="./images/4.jpg" alt="Beautiful display of fresh baked goods at Family Bakery" loading="lazy" width="500" height="400">
+                    </div>
+                </div>
+            </div>
+        </section>
 
-        <div class="blog-card">
-            <img src="./images/Mastering.png" alt="Sourdough Techniques">
-            <h2>Mastering Sourdough</h2>
-            <p>Learn how to create an authentic sourdough starter and bake the best rustic loaves with a crispy crust.</p>
-            <a href="#">Read More</a>
-        </div>
+        <!-- Gallery Section -->
+        <section id="gallery" class="gallery-section section-padding" aria-labelledby="gallery-heading">
+            <div class="container">
+                <div class="section-header text-center animate-on-scroll">
+                    <h2 id="gallery-heading" class="section-title">Our Baking</h2>
+                    <p class="section-description">Learn more about our special baked goods, crafted with love and expertise.</p>
+                </div>
 
-        <div class="blog-card">
-            <img src="./images/healthy.png" alt="Healthy Baking">
-            <h2>Healthy Baking Alternatives</h2>
-            <p>Want to make your baked goods healthier? Check out these ingredient swaps that keep things delicious!</p>
-            <a href="#">Read More</a>
-        </div>
-    </div>
-</div>
+                <div class="gallery-grid">
+                    <article class="gallery-card animate-on-scroll">
+                        <div class="card-image-wrapper">
+                            <img src="./images/5.jpg" alt="Freshly baked artisan breads with golden crust" loading="lazy" width="400" height="300">
+                            <div class="card-overlay">
+                                <button class="view-btn" aria-label="View Superior Breads details">View More</button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Superior Breads</h3>
+                            <p class="card-description">Freshly baked artisan breads with traditional techniques and premium ingredients.</p>
+                        </div>
+                    </article>
 
+                    <article class="gallery-card animate-on-scroll">
+                        <div class="card-image-wrapper">
+                            <img src="./images/6.jpg" alt="Soft and chewy bagels with various toppings" loading="lazy" width="400" height="300">
+                            <div class="card-overlay">
+                                <button class="view-btn" aria-label="View Bagels details">View More</button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Bagels</h3>
+                            <p class="card-description">Soft, chewy, and full of flavor - boiled and baked to perfection daily.</p>
+                        </div>
+                    </article>
 
-    <!-- Contact Section -->
-    <div id="contact" class="location">
-        <h1>Contact Information</h1>
-        <p>Get in touch with us for orders and inquiries.</p>
-        <div class="map">
-            <a href="https://www.google.com/maps" target="_blank"><img src="./images/dark.png" alt="Map"></a>
-        </div>
-    </div>
+                    <article class="gallery-card animate-on-scroll">
+                        <div class="card-image-wrapper">
+                            <img src="./images/7.jpg" alt="Delicious homemade cookies with chocolate chips" loading="lazy" width="400" height="300">
+                            <div class="card-overlay">
+                                <button class="view-btn" aria-label="View Cookies details">View More</button>
+                            </div>
+                        </div>
+                        <div class="card-content">
+                            <h3 class="card-title">Cookies</h3>
+                            <p class="card-description">Delicious homemade cookies made from our secret family recipes.</p>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
 
-    <!-- About Us Section -->
-    <div class="aboutus">
-        <div class="aboutus1">
-            <h2>About us</h2>
-            <p>We are passionate about bringing you the best quality baked goods, made fresh daily.</p>
-        </div>
-        <div class="aboutus1">
-            <h2>Why we are special?</h2>
-            <ul>
-                <li>> Our magical recipe.</li>
-                <li>> We care about the environment.</li>
-                <li>> We are trusted by hundreds of clients.</li>
-                <li>> Social media loves us!</li>
-            </ul>
-        </div>
-        <div class="aboutus1">
-            <h2>Opening Hours</h2>
-            <ul>
-                <li>> Monday - Friday: 10 AM - 10 PM</li>
-                <li>> Weekends: 10 AM - 11 PM</li>
-            </ul>
-        </div>
-        <div class="aboutus1">
-            <h2>Contact Details</h2>
-            <ul>
-                <li>> Address: 123 Bakery Street, FoodTown</li>
-                <li>> Phone: +46 123 456 789</li>
-                <li>> Email: hello@sitename.com</li>
-            </ul>
-        </div>
-    </div>
+        <!-- Blog Section -->
+        <section id="blog" class="blog-section section-padding" aria-labelledby="blog-heading">
+            <div class="container">
+                <div class="section-header text-center animate-on-scroll">
+                    <h2 id="blog-heading" class="section-title">Latest from Our Blog</h2>
+                    <p class="section-description">Stay updated with our latest news, recipes, and baking tips!</p>
+                </div>
+
+                <div class="blog-grid">
+                    <article class="blog-card animate-on-scroll">
+                        <div class="blog-image-wrapper">
+                            <img src="./images/art.jpg" alt="Artisan baker kneading dough for perfect bread" loading="lazy" width="400" height="250">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">The Art of Baking</h3>
+                            <p class="blog-excerpt">Discover the secrets behind creating perfect bread every time. From choosing the right flour to mastering fermentation techniques.</p>
+                            <a href="#" class="blog-link" aria-label="Read more about The Art of Baking">Read More <span aria-hidden="true">→</span></a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card animate-on-scroll">
+                        <div class="blog-image-wrapper">
+                            <img src="./images/Mastering.png" alt="Rustic sourdough bread with crispy golden crust" loading="lazy" width="400" height="250">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Mastering Sourdough</h3>
+                            <p class="blog-excerpt">Learn how to create an authentic sourdough starter and bake the best rustic loaves with a crispy crust and soft interior.</p>
+                            <a href="#" class="blog-link" aria-label="Read more about Mastering Sourdough">Read More <span aria-hidden="true">→</span></a>
+                        </div>
+                    </article>
+
+                    <article class="blog-card animate-on-scroll">
+                        <div class="blog-image-wrapper">
+                            <img src="./images/healthy.png" alt="Healthy whole grain bread and baked goods" loading="lazy" width="400" height="250">
+                        </div>
+                        <div class="blog-content">
+                            <h3 class="blog-title">Healthy Baking Alternatives</h3>
+                            <p class="blog-excerpt">Want to make your baked goods healthier? Check out these ingredient swaps that keep things delicious while being nutritious!</p>
+                            <a href="#" class="blog-link" aria-label="Read more about Healthy Baking Alternatives">Read More <span aria-hidden="true">→</span></a>
+                        </div>
+                    </article>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="contact-section section-padding" aria-labelledby="contact-heading">
+            <div class="container">
+                <div class="section-header text-center animate-on-scroll">
+                    <h2 id="contact-heading" class="section-title">Get In Touch</h2>
+                    <p class="section-description">Have questions or want to place an order? We'd love to hear from you!</p>
+                </div>
+
+                <div class="contact-grid">
+                    <div class="contact-form-wrapper animate-on-scroll">
+                        <form id="contact-form" class="contact-form" novalidate>
+                            <div class="form-group">
+                                <label for="name" class="form-label">Your Name <span class="required">*</span></label>
+                                <input type="text" id="name" name="name" class="form-input" required aria-required="true" placeholder="John Doe">
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="email" class="form-label">Email Address <span class="required">*</span></label>
+                                <input type="email" id="email" name="email" class="form-input" required aria-required="true" placeholder="john@example.com">
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="phone" class="form-label">Phone Number</label>
+                                <input type="tel" id="phone" name="phone" class="form-input" placeholder="+1 (555) 123-4567">
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="message" class="form-label">Message <span class="required">*</span></label>
+                                <textarea id="message" name="message" class="form-input" rows="5" required aria-required="true" placeholder="Tell us about your inquiry..."></textarea>
+                                <span class="form-error" role="alert"></span>
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-block">
+                                <span class="btn-text">Send Message</span>
+                                <span class="btn-loader" style="display: none;">Sending...</span>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="contact-info-wrapper animate-on-scroll">
+                        <div class="contact-info-card">
+                            <h3 class="info-title">Visit Us</h3>
+                            <p class="info-text">123 Bakery Street<br>Los Angeles, CA 90001<br>United States</p>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <h3 class="info-title">Opening Hours</h3>
+                            <p class="info-text">Monday - Friday: 10 AM - 10 PM<br>Weekends: 10 AM - 11 PM</p>
+                        </div>
+
+                        <div class="contact-info-card">
+                            <h3 class="info-title">Contact Details</h3>
+                            <p class="info-text">
+                                <a href="tel:+46123456789" class="contact-link">+46 123 456 789</a><br>
+                                <a href="mailto:hello@familybakery.com" class="contact-link">hello@familybakery.com</a>
+                            </p>
+                        </div>
+
+                        <div class="map-link-wrapper">
+                            <a href="https://www.google.com/maps" target="_blank" rel="noopener noreferrer" class="map-link" aria-label="View location on Google Maps">
+                                <img src="./images/dark.png" alt="Map location icon" width="80" height="80" loading="lazy">
+                                <span>View on Google Maps</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Info Section -->
+        <section class="info-section" aria-label="Additional information">
+            <div class="container">
+                <div class="info-grid">
+                    <div class="info-column animate-on-scroll">
+                        <h3 class="info-heading">About Us</h3>
+                        <p class="info-text">We are passionate about bringing you the best quality baked goods, made fresh daily with love and care.</p>
+                    </div>
+
+                    <div class="info-column animate-on-scroll">
+                        <h3 class="info-heading">Why We Are Special</h3>
+                        <ul class="info-list">
+                            <li>Our magical secret recipe</li>
+                            <li>We care about the environment</li>
+                            <li>Trusted by hundreds of clients</li>
+                            <li>Award-winning bakers</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-column animate-on-scroll">
+                        <h3 class="info-heading">Opening Hours</h3>
+                        <ul class="info-list">
+                            <li>Monday - Friday: 10 AM - 10 PM</li>
+                            <li>Weekends: 10 AM - 11 PM</li>
+                        </ul>
+                    </div>
+
+                    <div class="info-column animate-on-scroll">
+                        <h3 class="info-heading">Contact Details</h3>
+                        <ul class="info-list">
+                            <li>123 Bakery Street, Los Angeles</li>
+                            <li><a href="tel:+46123456789" class="footer-link">+46 123 456 789</a></li>
+                            <li><a href="mailto:hello@familybakery.com" class="footer-link">hello@familybakery.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <!-- Footer -->
-    <div class="footer">
-        <img src="./images/bakery-light-1.png" alt="Bakery Logo">
-        <h1>Copyright 2024. All rights reserved.</h1>
-    </div>
+    <footer class="footer" role="contentinfo">
+        <div class="container">
+            <div class="footer-content">
+                <img src="./images/bakery-light-1.png" alt="Family Bakery Logo" class="footer-logo" width="120" height="40">
+                <p class="footer-text">Copyright &copy; 2024 Family Bakery. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
 
+    <!-- Back to Top Button -->
+    <button id="back-to-top" class="back-to-top" aria-label="Back to top" title="Back to top">
+        <span aria-hidden="true">↑</span>
+    </button>
+
+    <!-- Toast Notification -->
+    <div id="toast-container" class="toast-container" role="alert" aria-live="polite" aria-atomic="true"></div>
+
+    <!-- JavaScript -->
     <script src="script.js"></script>
 </body>
 </html>
